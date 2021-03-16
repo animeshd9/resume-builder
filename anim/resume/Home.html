@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <script  src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.2.0/jspdf.umd.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script src="https://unpkg.com/docx@5.0.0/build/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Resume Builder</title>
+  </head>
+  <body>
+    <!-- <h1>Hello, world!</h1> -->
+    <!-- //Personal info -->
+    
+    
+    <div class="card"  >
+      <div class="align-items-center card-body">
+        
+        <h6 class="card-subtitle mb-2 text-muted">Personal Info</h6>
+        <!-- form -->
+        <form class="row g-3 needs-validation"  id="myform" novalidate>
+           
+          <div class="col-md-4">
+            <label for="validationCustom01" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="validationCustom02" class="form-label">Email</label>
+            <input type="text" class="form-control" id="email" name="email" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="validationCustomUsername" class="form-label">Phone</label>
+            <div class="input-group has-validation">
+              <!-- <span class="input-group-text" id="inputGroupPrepend">@</span> -->
+              <input type="text" class="form-control" id="phone" name="phone" required>
+              <div class="invalid-feedback">
+                Please choose a username.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="validationCustom04" class="form-label">Address</label>
+            <!-- <select class="form-select" id="validationCustom04" required>
+              <option selected disabled value="">Choose...</option>
+              <option>...</option>
+            </select> -->
+            <!-- <input type="text" class="form-control" id="validationCustom04" required> -->
+            <textarea class="form-control" id="address" name="address"></textarea>
+            <div class="invalid-feedback">
+              Please select a valid phone number.
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="validationCustom05" class="form-label">LinkedIn</label>
+            <input type="text" class="form-control" id="linkedIn" name="linkedIn" required>
+            <div class="invalid-feedback">
+              Please provide a valid zip.
+            </div>
+          </div>
+        <!-- </form> -->
+      
+        <!-- <hr/> -->
+          <!-- //summary -->
+          <!-- form  -->
+            <!-- <sap></sap>
+            <h6 class="card-subtitle mb-2 text-muted">Summary</h6>
+            <div class="col-md-12">
+              <textarea class="form-control" id="summary" name="summary"></textarea>
+            </div> -->
+         
+    
+   
+          <!-- //work Experience -->
+
+          <hr/>
+        <!-- form  -->
+        <!-- <form class="row g-3 needs-validation" id="workForm" novalidate> -->
+          <sap></sap>
+          <h6 class="card-subtitle mb-2 text-muted">Work Experience</h6>
+          
+          <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Title</label>
+            <input type="text" class="form-control" id="experience" name="experience" required>
+            <div id="expList"></div>
+            <!-- <button type="button" class="btn btn-primary" id="add-exp">Add</button>
+            <button type="button" class="btn btn-primary" id="remove-exp">Del</button> -->
+
+            
+
+          </div>
+
+          <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Location</label>
+            <input type="text" class="form-control" id="location" name="location" required>
+            <div id="expLoc"></div>
+
+          </div>
+
+       <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Dates</label>
+            <input type="date" class="form-control" id="experience_dates" name="experience_dates" required>
+            <div id="expDate"></div>
+          </div>   
+          
+          <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">End Date</label>
+            <input type="date" class="form-control" id="expEndDate" name="edu_date" required>
+            <div id="endDate"></div>
+          </div>
+
+          <div class="col-md-12">
+            <label for="validationCustom05" class="form-label">Description of the company</label>
+            <textarea class="form-control" id="description" name="description"></textarea>
+            <div id="expDes"></div>
+            
+            <button type="button" class="btn btn-primary" id="add-exp">Add</button>
+            <button type="button" class="btn btn-primary" id="remove-exp">Del</button>
+          </div>
+          
+        
+     
+  
+      <!-- //Education -->
+      <hr/>
+          <!-- form  -->
+            <sap></sap>
+            <h6 class="card-subtitle mb-2 text-muted">Education</h6>
+
+            <div class="col-md-4">
+                <label for="validationCustom05" class="form-label">college</label>
+                <input type="text" class="form-control" id="college" name="college" required>
+                <div id="col"></div>
+              </div>
+
+            <div class="col-md-4">
+              
+                <label for="validationCustom05" class="form-label">Last Degree</label>
+                <input type="text" class="form-control" id="education" name="education" required>
+                <div id="edList"></div>
+                
+
+            </div>
+            
+
+            <div class="col-md-4">
+                <label for="validationCustom05" class="form-label">Location</label>
+                <input type="text" class="form-control" id="eduLocation" name="edulocation" required>
+                <div id="edloc"></div>
+              </div>
+
+              <div class="col-md-4">
+                <label for="validationCustom05" class="form-label">Start Date</label>
+                <input type="date" class="form-control" id="eduStartDate" name="eduStartDate" required>
+                <div id="eduDate"></div>
+                <button type="button" class="btn btn-primary" id="add-education">Add</button>
+                <button type="button" class="btn btn-primary" id="remove-education">Del</button>
+            </div>
+
+              <div class="col-md-4">
+                <label for="validationCustom05" class="form-label">End Date</label>
+                <input type="date" class="form-control" id="eduEndDate" name="eduEndDate" required>
+                <div id="endEnd"></div>
+                
+            </div>
+    
+    
+          <!-- // Extra-curricular -->
+
+          <hr/>
+          <!-- form  -->
+            <sap></sap>
+            <h6 class="card-subtitle mb-2 text-muted">Extra-curricular Experience</h6>
+
+            <div class= col-md-12>
+              <label for="validationCustom05" class="form-label"></label>
+              <textarea class="form-control" id="hobby" name="hobby"placeholder="Hobby,sports,arts,community service"></textarea>
+            </div>
+            
+       
+
+          <!-- awards -->
+
+          <hr/>
+        <!-- form  -->
+       
+          <sap></sap>
+          <h6 class="card-subtitle mb-2 text-muted">Any other certificates,Awards</h6>
+          <div class= col-md-12>
+            <label for="validationCustom05" class="form-label"></label>
+            <textarea class="form-control" id="other" name="other"placeholder="Training,Non work and Non-study"></textarea>
+          </div>
+      
+      <!-- <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+              <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+              </label>
+              <div class="invalid-feedback">
+                You must agree before submitting.
+              </div>
+            </div>
+          </div> -->
+          <!-- <span></span> -->
+          <br>
+          <div class="col-12">
+            <button class="btn btn-primary" id="btn-generate" type="submit" >Submit</button>
+          </div>
+        
+      
+    </div>
+  </div>
+    <!-- </div> -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+</form>
+  </body> 
+  <script type="text/javascript" src="script.js" ></script> 
+ 
+   
+
+</html>
